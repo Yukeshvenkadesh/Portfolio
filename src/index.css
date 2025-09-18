@@ -1,0 +1,34 @@
+:root {
+  --bg: #0b0b0b;
+  --text: #efefef;
+  --muted: #9a9a9a;
+  --line: #1f1f1f;
+  --panel: #111111;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #0f0f0f;
+  --muted: #5b5b5b;
+  --line: #e8e8e8;
+  --panel: #f7f7f7;
+}
+
+html, body, #root { height: 100%; }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { margin: 0 0 10px; }
+p { margin: 0; opacity: 0.92; }
+img { max-width: 100%; display: block; }
