@@ -80,7 +80,7 @@ export default function App() {
 
               <div className="cta-row">
                 <a className="btn" href="#projects">View Projects</a>
-                <a className="btn" href="/resume.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+                <a className="btn" href="/resume1.pdf" target="_blank" rel="noreferrer">Download Resume</a>
               </div>
             </div>
             <div className="avatar-wrap">
