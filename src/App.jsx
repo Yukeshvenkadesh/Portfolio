@@ -1,6 +1,17 @@
 import './App.css'
+import { useState } from 'react'
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
   return (
     <header className="nav">
       <div className="nav-left">
@@ -9,24 +20,38 @@ function Navbar() {
           <span>Yukesh Venkadesh</span>
         </div>
       </div>
-      <div className="nav-right">
+      
+      {/* Mobile menu button */}
+      <button 
+        className="mobile-menu-btn" 
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        <span className={`hamburger ${isMenuOpen ? 'open' : ''}`}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <div className={`nav-right ${isMenuOpen ? 'open' : ''}`}>
         <nav>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#skills" onClick={closeMenu}>Skills</a>
+          <a href="#experience" onClick={closeMenu}>Experience</a>
+          <a href="#projects" onClick={closeMenu}>Projects</a>
+          <a href="#education" onClick={closeMenu}>Education</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
         </nav>
         <div className="nav-actions">
-        <button className="theme-toggle" aria-label="Toggle theme" onClick={() => {
-          const next = document.documentElement.getAttribute('data-theme') === 'light' ? '' : 'light'
-          if (next) document.documentElement.setAttribute('data-theme', next)
-          else document.documentElement.removeAttribute('data-theme')
-          localStorage.setItem('theme', next || 'dark')
-        }}>
-          🌓 Theme
-        </button>
+          <button className="theme-toggle" aria-label="Toggle theme" onClick={() => {
+            const next = document.documentElement.getAttribute('data-theme') === 'light' ? '' : 'light'
+            if (next) document.documentElement.setAttribute('data-theme', next)
+            else document.documentElement.removeAttribute('data-theme')
+            localStorage.setItem('theme', next || 'dark')
+          }}>
+            🌓 Theme
+          </button>
         </div>
       </div>
     </header>
